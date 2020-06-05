@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/cornelk/goscrape/scraper"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
+
+        "github.com/cornelk/goscrape/pkg/scraper"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 	rootCmd.Flags().String("config", "", "config file (default is $HOME/.goscrape.yaml)")
 	rootCmd.Flags().StringArrayP("include", "n", nil, "only include URLs with PERL Regular Expressions support")
 	rootCmd.Flags().StringArrayP("exclude", "x", nil, "exclude URLs with PERL Regular Expressions support")
-	rootCmd.Flags().StringP("output", "o", "", "output directory to write files to")
+	rootCmd.Flags().StringP("output", "o", "./shared/output", "output directory to write files to")
 	rootCmd.Flags().IntP("imagequality", "i", 0, "image quality, 0 to disable reencoding")
 	rootCmd.Flags().UintP("depth", "d", 10, "download depth, 0 for unlimited")
 	rootCmd.Flags().UintP("timeout", "t", 0, "time limit in seconds for each http request to connect and read the request body")
